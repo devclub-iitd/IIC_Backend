@@ -11,4 +11,7 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
+
+RUN ["chmod", "+x", "/code/entry-point.sh"]
+
 ENTRYPOINT ["/code/entry-point.sh"] 

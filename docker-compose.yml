@@ -5,7 +5,7 @@ services:
     build: .
     image: "${REGISTRY_NAME}devclubiitd/iic_backend:0.1"
     ports:
-      - 7500:7500
+      - 7500:3000
     healthcheck:
       test: ["CMD", "curl", "http://localhost:7500"]
       interval: 1m30s
