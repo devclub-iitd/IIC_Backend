@@ -18,6 +18,12 @@
   },
   "homepage": "https://github.com/devclub-iitd/IIC_Backend#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "lusca": "^1.6.1",
+    "path": "^0.12.7"
   }
 }
