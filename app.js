@@ -11,7 +11,7 @@ const static = require("./models/statics");
 const express = require('express');
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/iic', { useNewUrlParser: true });
+// mongoose.connect('mongodb://localhost:27017/iic', { useNewUrlParser: true });
 
 app.use(compression());
 app.use(bodyParser.json({ type: 'application/json' }));
@@ -26,7 +26,12 @@ app.get('/', function(req, res) {
 });
 
 app.get('/hello', function(req, res) {
-	res.send("hey!!");
+	console.log("API call received")
+	return res.status(200).json({
+        'error': false,
+        'data': [{"name": "test", "email": "a@g.com", "num": "123"}, {"name": "test2", "email": "b@g.com", "num": "456"}, {"name": "test3", "email": "c@g.com", "num": "789"}]
+    });
+	// res.send("hey!!");
 });
 
 
