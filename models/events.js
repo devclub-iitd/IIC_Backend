@@ -1,11 +1,17 @@
 var mongoose = require('mongoose');
 
 var eventSchema = new mongoose.Schema({
-	title: String,
-	tagline: String,
+	metaData: {
+		// possibleField:-
+		type: {type: String, enum: ['type1', 'type2', 'type3']},
+		title: String,
+		eventDate: Date,
+		organiser: String,
+		venue: String,
+		img: String,
+	},
 	body: String,
-	organiser: String,
-	eventDate: Date,
+	onGoing: Boolean,
 	addedBy: {
 		uid: mongoose.Schema.Types.ObjectId,
 		ref: "users"
@@ -13,7 +19,8 @@ var eventSchema = new mongoose.Schema({
 	addedOn: {
 		type: Date,
 	 	default: Date.now
-	 }
+	}
+	hidden: Boolean,
 });
 
 module.exports = mongoose.model("Event", eventSchema);

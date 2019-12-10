@@ -11,7 +11,7 @@ var userSchema = new mongoose.Schema({
 		}
 	},
 	password: String,
-	access: String,
+	access: {type: String, enum: ['superadmin', 'adminIIC', 'adminEDC', 'guest']},
 });
 
 module.exports = mongoose.model("User", userSchema);
