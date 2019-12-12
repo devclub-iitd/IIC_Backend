@@ -5,13 +5,12 @@ var showcaseSchema = new mongoose.Schema({
 		title: String,
 		img: String,
 		founder: [String],
-    founded: Date,
-    url: String,
+	    founded: Date,
+	    url: String,
 	},
 	body: String,
 	addedBy: {
 		uid: mongoose.Schema.Types.ObjectId,
-		ref: "users"
 	},
 	hidden: Boolean,
 });

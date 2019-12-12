@@ -15,7 +15,8 @@ var teamSchema = new mongoose.Schema({
 			unique: true
 		}
 	},
-	bio: String
+	bio: String,
+	hidden: Boolean,
 });
 
 module.exports = mongoose.model("Team", teamSchema);

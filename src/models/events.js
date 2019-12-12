@@ -13,13 +13,12 @@ var eventSchema = new mongoose.Schema({
 	body: String,
 	onGoing: Boolean,
 	addedBy: {
-		uid: mongoose.Schema.Types.ObjectId,
-		ref: "users"
+		uid: mongoose.Schema.Types.ObjectId
 	},
 	addedOn: {
 		type: Date,
 	 	default: Date.now
-	}
+	},
 	hidden: Boolean,
 });
 

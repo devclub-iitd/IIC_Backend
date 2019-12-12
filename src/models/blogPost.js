@@ -10,12 +10,11 @@ var blogSchema = new mongoose.Schema({
 	body: String,
 	addedBy: {
 		uid: mongoose.Schema.Types.ObjectId,
-		ref: "users"
 	},
 	addedOn: {
 		type: Date,
 	 	default: Date.now
-	}
+	},
 	hidden: Boolean,
 });
 

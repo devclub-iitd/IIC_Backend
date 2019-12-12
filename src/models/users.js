@@ -1,10 +1,12 @@
 var mongoose = require('mongoose');
 
+var passportLocalMongoose = require('passport-local-mongoose');
+
 var userSchema = new mongoose.Schema({
 	name: String,
 	position: String,
 	organisation: String,
-	email: {
+	username: {
 		type: String,
 		index: {
 			unique: true
@@ -13,5 +15,7 @@ var userSchema = new mongoose.Schema({
 	password: String,
 	access: {type: String, enum: ['superadmin', 'adminIIC', 'adminEDC', 'guest']},
 });
+
+userSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("User", userSchema);
