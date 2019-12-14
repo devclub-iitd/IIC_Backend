@@ -74,7 +74,8 @@ app.post('/login', passport.authenticate('local', {
 const apiRouter = express.Router();
 
 apiRouter.use('/about', aboutRouter);
-apiRouter.use('/admin',isLoggedIn, adminRouter);
+apiRouter.use('/admin', adminRouter);
+// apiRouter.use('/admin',isLoggedIn, adminRouter);
 apiRouter.use('/blog', blogRouter);
 apiRouter.use('/events', eventRouter);
 apiRouter.use('/initiatives', initRouter);

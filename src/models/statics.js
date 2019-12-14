@@ -7,11 +7,11 @@ var staticSchema = new mongoose.Schema({
 		initiatives: [{
 			title: String,
 			desc: String,
-			img: String,
-		}],
+			img: String
+		}]
 		// add field acc to various static requirements
 	},
-	hidden: Boolean,
+	hidden: Boolean
 });
 
 module.exports = mongoose.model("Static", staticSchema);

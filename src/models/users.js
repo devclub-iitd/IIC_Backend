@@ -13,7 +13,7 @@ var userSchema = new mongoose.Schema({
 		}
 	},
 	password: String,
-	access: {type: String, enum: ['superadmin', 'adminIIC', 'adminEDC', 'guest']},
+	access: {type: String, enum: ['superadmin', 'adminIIC', 'adminEDC', 'guest']}
 });
 
 userSchema.plugin(passportLocalMongoose);

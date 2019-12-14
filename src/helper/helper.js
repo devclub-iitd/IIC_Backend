@@ -1,5 +1,6 @@
-module.exports = function createResponse(message, data) {
+module.exports = function createResponse(status, message, data) {
 	return({
+		"status": status,
 		"message": message,
 		"data": data
 	})

@@ -14,7 +14,7 @@ const [eventGetStatic, eventGetAll, eventGetID, eventCreate, eventUpdateID, even
 const [resourceGetStatic, resourceGetAll, resourceGetID, resourceCreate, resourceUpdateID, resourceDeleteID] = Core(Resource);
 
 function userDetails(req, res) {
-	res.status(200).json(createResponse('User loaded successfully', req.user));
+	res.status(200).json(createResponse(true, 'User loaded successfully', req.user));
 }
 
 router.get('/', userDetails);

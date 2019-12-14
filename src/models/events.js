@@ -5,10 +5,10 @@ var eventSchema = new mongoose.Schema({
 		// possibleField:-
 		type: {type: String, enum: ['type1', 'type2', 'type3']},
 		title: String,
-		eventDate: Date,
+		eventDate: String,
 		organiser: String,
 		venue: String,
-		img: String,
+		img: String
 	},
 	body: String,
 	onGoing: Boolean,
@@ -19,7 +19,25 @@ var eventSchema = new mongoose.Schema({
 		type: Date,
 	 	default: Date.now
 	},
-	hidden: Boolean,
+	hidden: Boolean
 });
+
+
+// "metaData": {
+// 		// possibleField:-
+// 		"type": "type1",
+// 		"title": "test event 1",
+// 		"eventDate": "10-10-2019",
+// 		"organiser": "organiser",
+// 		"venue": "venue",
+// 		"img": "imgUrl",
+// 	},
+// 	"body": "insert body here",
+// 	"onGoing": true,
+// 	"addedBy": {
+// 		"uid": "5df27d01f1ad673a84eadf01"
+// 	},
+// 	"hidden": false,
+
 
 module.exports = mongoose.model("Event", eventSchema);

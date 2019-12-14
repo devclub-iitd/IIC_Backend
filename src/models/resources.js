@@ -7,7 +7,7 @@ var resourceSchema = new mongoose.Schema({
 	url: String,
 	provider: String, // name of the organisation providing this resource
 	addedBy: {
-		uid: mongoose.Schema.Types.ObjectId,
+		uid: mongoose.Schema.Types.ObjectId
 	},
 	hidden: Boolean
 });

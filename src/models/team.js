@@ -9,14 +9,9 @@ var teamSchema = new mongoose.Schema({
 	url: {
 		// links to social media profiles
 	},
-	email: {
-		type: String,
-		index: {
-			unique: true
-		}
-	},
+	email: String,
 	bio: String,
-	hidden: Boolean,
+	hidden: Boolean
 });
 
 module.exports = mongoose.model("Team", teamSchema);

@@ -5,13 +5,13 @@ const app = express();
 const createResponse = require('../helper/helper');
 
 
-function Core(model, field) {
+function Core(model, field, admin = false) {
 	const name = model.collection.collectionName;
 
 	function getStatic(req, res) {
 		model.findOne({title: field}, function(err, static){
 			if(!err) {
-				res.status(200).json(createResponse("details for " + field + " are:", static.body.field));
+				res.status(200).json(createResponse(true, "details for " + field + " are:", static.body.field));
 			} else {
 				console.log(err);
 			}
@@ -19,23 +19,50 @@ function Core(model, field) {
 	}
 
 	function getAll(req, res) {
-		model.find({hidden: false}, function(err, result) {
-			if(!err) {
-				if (field) {
-					res.status(200).json(createResponse("the following results were found: ", result.field));
-				} else {
-					res.status(200).json(createResponse("the following results were found: ", result));
-				}
+		if(!admin) {
+			if(field == 'metaData') {
+				model.find({hidden: false}, {metaData: 1}, function(err, result) {
+					if(!err) {
+						res.status(200).json(createResponse(true, "the following results were found: ", result));
+					} else {
+						console.log(err);
+					}
+				})
 			} else {
-				console.log(err);
+				model.find({hidden: false}, function(err, result) {
+					if(!err) {
+						res.status(200).json(createResponse(true, "the following results were found: ", result));
+					} else {
+						console.log(err);
+					}
+				})
 			}
-		});
+		} else if(admin) {
+			if(field == 'metaData') {
+				model.find({}, {metaData: 1}, function(err, result) {
+					if(!err) {
+						res.status(200).json(createResponse(true, "the following results were found: ", result));
+					} else {
+						console.log(err);
+					}
+				})
+			} else {
+				model.find({}, function(err, result) {
+					if(!err) {
+						res.status(200).json(createResponse(true, "the following results were found: ", result));
+					} else {
+						console.log(err);
+					}
+				})
+			}
+
+		}
 	}
 
 	function getID(req, res) {
 		model.findById(req.params.id, function(err, result) {
 			if(!err) {
-				res.status(200).json(createResponse("the following " + name + " was found:", result));
+				res.status(200).json(createResponse(true, "the following " + name + " was found:", result));
 			} else {
 				console.log(err);
 			}
@@ -44,8 +71,11 @@ function Core(model, field) {
 
 	function create(req, res) {
 		model.create(req.body, function(err, result) {
+			console.log(model);
+			console.log(req.body);
+			console.log(result);
 			if(!err) {
-				res.status(200).json(createResponse(name + " created with details:", result));
+				res.status(200).json(true, createResponse(name + " created with details:", result));
 			} else {
 				console.log(err)
 			}
@@ -56,30 +86,33 @@ function Core(model, field) {
 		if(req.user.access != 'superadmin') {
 			model.findById(req.params.id, function(err, result) {
 				if(!err) {
-					if(result.addedBy.uid == req.user._id) {
-						model.findByIdandUpdate(req.params.id, req.body, function(err, result) {
+					if(result.addedBy.uid.equals(req.user._id)) {
+						model.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, result) {
 							if(!err) {
-								res.status(200).json(createResponse("Details updated successfully", result));
+								res.status(200).json(createResponse(true, "Details updated successfully", result));
 							} else {
 								console.log(err);
 							}
 						});	
 					} else {
 						// change status here
-						res.status(200).json(createResponse("Details can't be changed as you did not create them", ""));
+						res.status(200).json(createResponse(false, "Details can't be changed as you did not create them", ""));
 					}
 				} else {
 					console.log(err);
 				}
 			})			
-		} else {
-			model.findByIdandUpdate(req.params.id, req.body, function(err, result) {
+		} else if(req.user.access == 'superadmin') {
+			model.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, result) {
 				if(!err) {
-					res.status(200).json(createResponse("Details updated successfully", result));
+					res.status(200).json(createResponse(true, "Details updated successfully", result));
 				} else {
 					console.log(err);
 				}
 			})
+		} else {
+			//change status code
+			res.status(200).json(createResponse(false, "Sorry you cannot do this action", ""));
 		}
 	}
 
@@ -87,30 +120,33 @@ function Core(model, field) {
 		if(req.user.access != 'superadmin') {
 			model.findById(req.params.id, function(err, result) {
 				if(!err) {
-					if(result.addedBy.uid == req.user._id) {
-						model.findByIdandRemove(req.params.id, function(err, result) {
+					if(result.addedBy.uid.equals(req.user._id)) {
+						model.findByIdAndRemove(req.params.id, function(err, result) {
 							if(!err) {
-								res.status(200).json(createResponse("Item deleted successfully", result));
+								res.status(200).json(createResponse(true, "Item deleted successfully", result));
 							} else {
 								console.log(err);
 							}
 						});	
 					} else {
 						// change status here
-						res.status(200).json(createResponse("Cannot be deleted by you as you did not create it", ""));
+						res.status(200).json(createResponse(false, "Cannot be deleted by you as you did not create it", ""));
 					}
 				} else {
 					console.log(err);
 				}
 			})			
-		} else {
-			model.findByIdandDelete(req.params.id, function(err, result) {
+		} else if(req.user.access == 'superadmin') {
+			model.findByIdAndRemove(req.params.id, function(err, result) {
 				if(!err) {
-					res.status(200).json(createResponse("Item deleted successfully", result));
+					res.status(200).json(createResponse(true, "Item deleted successfully", result));
 				} else {
 					console.log(err);
 				}
 			})
+		} else {
+			//change status code
+			res.status(200).json(createResponse(false, "Sorry you cannot do this action", ""));
 		}
 	}
 

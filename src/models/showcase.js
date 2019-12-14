@@ -3,16 +3,16 @@ var mongoose = require('mongoose');
 var showcaseSchema = new mongoose.Schema({
 	metaData: {
 		title: String,
-		img: String,
+		img: [String],
 		founder: [String],
 	    founded: Date,
-	    url: String,
+	    url: String
 	},
 	body: String,
 	addedBy: {
-		uid: mongoose.Schema.Types.ObjectId,
+		uid: mongoose.Schema.Types.ObjectId
 	},
-	hidden: Boolean,
+	hidden: Boolean
 });
 
 module.exports = mongoose.model("Showcase", showcaseSchema);
