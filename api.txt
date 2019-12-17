@@ -1,0 +1,300 @@
+GET: /api/about				// For the about page
+	return:
+		status: true/false
+		message: "string"
+		data: { object with data in property name - about }		// about details
+
+GET: /api/blog
+	return:
+		status: true/false
+		message: "string"
+		data: { // array consisting of metaData of blog objects } // such that hidden = false
+
+GET: /api/blog/:id
+	return:
+		status: true/false
+		message: "string"
+		data: { // object of blog with corresponding id }
+
+GET: /api/events
+	return:
+		status: true/false
+		message: "string"
+		data: { // array consisting of metaData of event objects } // such that hidden = false
+
+GET: /api/events/:id
+	return:
+		status: true/false
+		message: "string"
+		data: { // object of event with corresponding id }
+
+GET: /api/initiatives				// For the initiative page
+	return:
+		status: true/false
+		message: "string"
+		data: { // object containing array consisting of initiative objects in the property - initiatives } // such that hidden = false, refer to static model schema
+
+GET: /api/resources
+	return:
+		status: true/false
+		message: "string"
+		data: { // array consisting of resource objects } // such that hidden = false
+
+GET: /api/showcase
+	return:
+		status: true/false
+		message: "string"
+		data: { // array consisting of metaData of showcase objects } // such that hidden = false
+
+GET: /api/showcase/:id
+	return:
+		status: true/false
+		message: "string"
+		data: { // object of showcase startup with corresponding id }
+
+GET: /api/team
+	return: 
+		status: true/false
+		message: "string"
+		data: { // array consisting of team objects } // such that hidden = false
+
+
+--------------------------admin access-------------------
+
+GET: /api/admin
+	params:
+		header: 
+			token	// used for verifying that admin is logged in
+	return:
+		status: true/false
+		message: "string"
+		data: { // object of user details }
+
+:category of type - [events, blog, resources, showcase, team] // very important !!!!!!!
+
+GET: /api/admin/:category				// returns all results of given category
+	params:
+		header: 
+			token	// used for verifying that admin is logged in
+	return:
+		status: true/false
+		message: "string"
+		data: { // array consisting of all :category objects } // returns all, hidden = true/false
+
+GET: /api/admin/:category/:id				// returns all results of given category
+	params:
+		header: 
+			token	// used for verifying that admin is logged in
+	return:
+		status: true/false
+		message: "string"
+		data: { // object of :category with corresponding category }
+
+POST: /api/admin/:category				// create a new object of correponding category
+	params:
+		header:
+			token	// used for verifying that admin is logged in
+		body:
+			// refer to corresponding category schema at bottom
+		return:
+			status: true/false
+			message: "string"
+			data: { // created object }
+
+POST: /api/admin/:category/:id				// update details of an object with corresponding id of the corresponding category
+	params:
+		header:
+			token	// used for verifying that admin is logged in
+		body:
+			// refer to corresponding category schema at bottom
+		return:
+			status: true/false
+			message: "string"
+			data: { // updated object }
+
+DELETE: /api/admin/:category/:id				// delete an object with corresponding id of corresponding category
+	params:
+		header:
+			token	// used for verifying that admin is logged in
+	return:
+		status: true/false
+		message: "string"
+		data: { // deleted object }
+
+----------------category-wise schema details-------------
+
+events:
+	body:
+		metaData[type]
+		metaData[title]
+		metaData[eventDate]
+		metaData[organiser]
+		metaData[venue]
+		metaData[img]
+		body
+		onGoing
+		addedBy[uid]
+		hidden
+
+blog:
+	body:
+		metaData[title]
+		metaData[img]
+		metaData[author]
+		metaData[organisation]
+		body
+		onGoing
+		addedBy[uid]
+		hidden
+
+resources:
+	body:
+		name
+		body
+		type
+		url
+		provider
+		addedBy[uid]
+		hidden
+
+showcase:
+	body:
+		metaData[title]
+		metaData[img]
+		metaData[founder]
+		metaData[founded]
+		metaData[url]
+		body
+		addedBy[uid]
+		hidden
+
+team:
+	body:
+		name
+		position
+		organisation
+		contact
+		img
+		url[facebook]
+		email
+		bio
+		hidden
+
+----------------superadmin functions---------------------
+
+GET: /api/admin/users			// display all users
+	params:
+		header:
+			token // used for verifying that admin is logged in
+		user:
+			access	// used for checking that user is superadmin
+	return:
+		status: true/false
+		message: "string"
+		data: { // array consisting of user objects }
+
+GET: /api/admin/users/:id			// display user with corresponding id
+	params:
+		header:
+			token // used for verifying that admin is logged in
+		user:
+			access	// used for checking that user is superadmin
+	return:
+		status: true/false
+		message: "string"
+		data: { // object of corresponding user}
+
+POST: /api/admin/users		// create a new user/admin
+	params:
+		header:
+			token // used for verifying that admin is logged in
+		user:
+			access	// used for checking that user is superadmin
+		body:
+			name
+			position
+			organisation
+			username
+			password
+			access
+	return:
+		status: true/false
+		message: "string"
+		data: { // object of created user }
+
+POST: /api/admin/users/:id/password			// update password of user with corresponding id
+	params:
+		header:
+			token // used for verifying that admin is logged in
+		user:
+			access	// used for checking that user is superadmin
+		body:
+			password // the updated password of user
+	return:
+		status: true/false
+		message: "string"
+
+POST: /api/admin/users/:id			// update details of user with corresponding id
+	params:
+		header:
+			token // used for verifying that admin is logged in
+		user:
+			access	// used for checking that user is superadmin
+		body:
+			name
+			position
+			organisation
+			username
+			access
+	return:
+		status: true/false
+		message: "string"
+		data: { // object of user with updated details }
+
+
+DELETE: /api/admin/users/:id			// delete user with corresponding id
+	params:
+		header:
+			token // used for verifying that admin is logged in
+		user:
+			access	// used for checking that user is superadmin
+	return:
+		status: true/false
+		message: "string"
+		data: { // object of deleted user }
+
+GET: /api/admin/statics/:title
+	return:
+		status: true/false
+		message: "string"
+		data: { // an object which contains the required data in the property corresponding to :title }
+
+POST: /api/admin/statics			// to create a new static entry - model schema also has to be changed !!!
+	params:
+		header:
+			token // used for verifying that admin is logged in
+		user:
+			access	// used for checking that user is superadmin
+		body:
+			title	// title of the static
+			body[title]	// data in correct form, refer to static schema
+	return:
+		status: true/false
+		message: "string"
+		data: { // object of inserted entry }
+
+POST: /api/admin/statics/:title			// to update contents of a static entry
+	params:
+		header:
+			token // used for verifying that admin is logged in
+		user:
+			access	// used for checking that user is superadmin
+		body:
+			body[title]	// data in correct form, refer to static schema
+	return:
+		status: true/false
+		message: "string"
+		data: { // object of updated entry }
+
+
+---------------------------------------------------------

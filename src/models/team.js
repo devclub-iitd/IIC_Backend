@@ -7,6 +7,7 @@ var teamSchema = new mongoose.Schema({
 	contact: Number,
 	img: String,
 	url: {
+		facebook: String
 		// links to social media profiles
 	},
 	email: String,

@@ -11,7 +11,7 @@ function Core(model, field, admin = false) {
 	function getStatic(req, res) {
 		model.findOne({title: field}, function(err, static){
 			if(!err) {
-				res.status(200).json(createResponse(true, "details for " + field + " are:", static.body.field));
+				res.status(200).json(createResponse(true, "details for " + field + " are:", static.body));
 			} else {
 				console.log(err);
 			}
@@ -71,11 +71,8 @@ function Core(model, field, admin = false) {
 
 	function create(req, res) {
 		model.create(req.body, function(err, result) {
-			console.log(model);
-			console.log(req.body);
-			console.log(result);
 			if(!err) {
-				res.status(200).json(true, createResponse(name + " created with details:", result));
+				res.status(200).json(createResponse(true, name + " created with details:", result));
 			} else {
 				console.log(err)
 			}

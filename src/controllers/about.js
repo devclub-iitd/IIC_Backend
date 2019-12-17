@@ -5,6 +5,6 @@ const Static = require('../models/statics');
 const router = express.Router();
 const [getStatic] = Core(Static, 'about');
 
-router.get('/', getStatic);
+router.get('/', getStatic); 
 
 module.exports = router;

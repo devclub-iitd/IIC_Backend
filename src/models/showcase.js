@@ -5,7 +5,7 @@ var showcaseSchema = new mongoose.Schema({
 		title: String,
 		img: [String],
 		founder: [String],
-	    founded: Date,
+	    founded: String,
 	    url: String
 	},
 	body: String,
