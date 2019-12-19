@@ -23,8 +23,9 @@ const teamRouter = require("./src/controllers/team");
 // import path from "path";
 const express = require('express');
 const app = express();
+const MONGODB_URI = process.env["MONGODB_URI_LOCAL"] || "mongodb://localhost:27017/iic_backend";
 
-mongoose.connect('mongodb://localhost:27017/iic', { useNewUrlParser: true })
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 .then(function() {
 	console.log("Connected to mongoDB");
 }).catch(function(err) {
@@ -90,7 +91,7 @@ app.get('/login', function(req, res) {
 	res.render('form.ejs')
 })
 
-app.listen(3000, process.env.IP, function() {
+app.listen(process.env.PORT, process.env.IP, function() {
 	console.log("Server started");
 });
 
