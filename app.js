@@ -109,25 +109,25 @@ app.listen(process.env["PORT"], process.env.IP, function() {
 // 	console.log(req.body)
 // })
 
-// app.get('/createAdmin', function(req, res) {
-// 	var admin = {
-// 		name: 'Aryan',
-// 		position: 'PosName',
-// 		organisation: 'OrgName',
-// 		username: 'aryanguptaleo@gmail.com',
-// 		access: 'superadmin',
-// 	};
-// 	var password = 'helloworld';
-// 	User.register(new User(admin), password, function(err, user) {
-// 		if(err) {
-// 			console.log(err);
-// 			return res.redirect('/');
-// 		}
-// 		passport.authenticate('local')(req, res, function() {
-// 			res.redirect('/admin');
-// 		})
-// 	});
-// });
+app.get('/createAdmin', function(req, res) {
+	var admin = {
+		name: 'Aryan',
+		position: 'PosName',
+		organisation: 'OrgName',
+		username: 'aryanguptaleo@gmail.com',
+		access: 'superadmin',
+	};
+	var password = 'helloworld';
+	User.register(new User(admin), password, function(err, user) {
+		if(err) {
+			console.log(err);
+			return res.redirect('/');
+		}
+		passport.authenticate('local')(req, res, function() {
+			res.redirect('/admin');
+		})
+	});
+});
 
 
 // app.get('/hello', function(req, res) {
