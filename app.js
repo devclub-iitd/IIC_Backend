@@ -12,6 +12,7 @@ const passport = require('passport');
 const localStrategy = require('passport-local');
 const passportLocalMongoose = require('passport-local-mongoose');
 
+const createResponse = require('./src/helper/helper');
 
 const aboutRouter = require("./src/controllers/about");
 const adminRouter = require("./src/controllers/admin");
@@ -34,6 +35,7 @@ if (fs.existsSync(".env")) {
 }
 
 const MONGODB_URI = process.env["MONGODB_URI_LOCAL"] || "mongodb://localhost:27017/iic_backend";
+// const MONGODB_URI = "mongodb://localhost:27017/iic_backend";
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 .then(function() {
@@ -94,6 +96,12 @@ apiRouter.use('/resources', resourceRouter);
 apiRouter.use('/showcase', showcaseRouter);
 apiRouter.use('/team', teamRouter);
 
+// -------------- unprotected admin route to insert Data ------------------
+
+apiRouter.use('/insertData', adminRouter);
+
+// ----------------------------------------------------------
+
 app.use('/api', apiRouter);
 
 
@@ -105,16 +113,24 @@ app.listen(process.env["PORT"], process.env.IP, function() {
 	console.log("Server started on %s", process.env["PORT"]);
 });
 
-// app.post('/testForm', function(req, res) {
-// 	console.log(req.body)
-// })
+// ------------for dummy data-----------------------
 
-app.get('/createAdmin', function(req, res) {
+app.get('/api/getAdmin', function(req, res) {
+	User.find({}, function(err, results) {
+		if(!err) { 
+			res.status(200).json(createResponse(true, 'details retrieved: ', results[0]));
+		} else {
+			console.log(err)
+		}
+	});
+});
+
+app.get('/createSAdmin/:name', function(req, res) {
 	var admin = {
-		name: 'Aryan',
+		name: req.params.name,
 		position: 'PosName',
 		organisation: 'OrgName',
-		username: 'aryanguptaleo@gmail.com',
+		username: req.params.name,
 		access: 'superadmin',
 	};
 	var password = 'helloworld';
@@ -129,6 +145,25 @@ app.get('/createAdmin', function(req, res) {
 	});
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// app.post('/testForm', function(req, res) {
+// 	console.log(req.body)
+// })
 
 // app.get('/hello', function(req, res) {
 // 	console.log("API call received")

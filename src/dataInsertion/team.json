@@ -1,0 +1,67 @@
+[
+	{
+		"name": "member name 1",
+		"position": "position", 
+		"organisation": "organisation",
+		"contact": "1234567890",
+		"img": "img URL",
+		"url": {
+			"facebook": "www.facbook.com/profileLink"
+		},
+		"email": "emailaddress@gmail.com",
+		"bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sem metus, ultricies non lacus ut, aliquam vulputate sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam a efficitur velit, at finibus massa. Pellentesque quis blandit magna.",
+		"hidden": false
+	},
+	{
+		"name": "member name 2",
+		"position": "position", 
+		"organisation": "organisation",
+		"contact": "1234567890",
+		"img": "img URL",
+		"url": {
+			"facebook": "www.facbook.com/profileLink"
+		},
+		"email": "emailaddress@gmail.com",
+		"bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sem metus, ultricies non lacus ut, aliquam vulputate sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam a efficitur velit, at finibus massa. Pellentesque quis blandit magna.",
+		"hidden": false
+	},
+	{
+		"name": "member name 3",
+		"position": "position", 
+		"organisation": "organisation",
+		"contact": "1234567890",
+		"img": "img URL",
+		"url": {
+			"facebook": "www.facbook.com/profileLink"
+		},
+		"email": "emailaddress@gmail.com",
+		"bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sem metus, ultricies non lacus ut, aliquam vulputate sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam a efficitur velit, at finibus massa. Pellentesque quis blandit magna.",
+		"hidden": false
+	},
+	{
+		"name": "member name 4",
+		"position": "position", 
+		"organisation": "organisation",
+		"contact": "1234567890",
+		"img": "img URL",
+		"url": {
+			"facebook": "www.facbook.com/profileLink"
+		},
+		"email": "emailaddress@gmail.com",
+		"bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sem metus, ultricies non lacus ut, aliquam vulputate sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam a efficitur velit, at finibus massa. Pellentesque quis blandit magna.",
+		"hidden": false
+	},
+	{
+		"name": "member name 5",
+		"position": "position", 
+		"organisation": "organisation",
+		"contact": "1234567890",
+		"img": "img URL",
+		"url": {
+			"facebook": "www.facbook.com/profileLink"
+		},
+		"email": "emailaddress@gmail.com",
+		"bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sem metus, ultricies non lacus ut, aliquam vulputate sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam a efficitur velit, at finibus massa. Pellentesque quis blandit magna.",
+		"hidden": false
+	}
+]
