@@ -31,7 +31,7 @@ if admin.json()['status'] == True :
 	for payload in json_data:
 
 		# NOTE:- comment following line when inserting team data
-		payload['addedBy']['uid'] = admin.json()['data']['_id']
+		# payload['addedBy']['uid'] = admin.json()['data']['_id']
 
 		r = requests.post(url, data=json.dumps(payload), headers=headers)
 		print('done');

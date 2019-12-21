@@ -112,6 +112,10 @@ router.get('/statics/:title', checkSU, dispStatic);
 router.post('/statics', checkSU, staticCreate);
 router.post('/statics/:title', checkSU, updateStatic);
 
+// ------------------- insert static data with su access --------------------
+router.post('/insertStatics', staticCreate);
+
+
 router.get('/events', eventGetAll);
 router.get('/events/:id', eventGetID);
 router.post('/events', eventCreate);
