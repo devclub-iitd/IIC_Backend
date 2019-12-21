@@ -7,15 +7,12 @@ var teamSchema = new mongoose.Schema({
 	contact: Number,
 	img: String,
 	url: {
+		facebook: String
 		// links to social media profiles
 	},
-	email: {
-		type: String,
-		index: {
-			unique: true
-		}
-	},
-	bio: String
+	email: String,
+	bio: String,
+	hidden: Boolean
 });
 
 module.exports = mongoose.model("Team", teamSchema);

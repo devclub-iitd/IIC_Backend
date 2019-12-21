@@ -1,0 +1,72 @@
+[
+	{
+		"metaData": {
+			"title": "title 1",
+			"img": ["imgurl1", "imgurl2", "imgurl3"],
+			"founder": ["founder 1", "founder 2"],
+		    "founded": "20XX",
+		    "url": "website url"
+		},
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sem metus, ultricies non lacus ut, aliquam vulputate sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam a efficitur velit, at finibus massa. Pellentesque quis blandit magna. In lacinia bibendum mauris, a fringilla turpis feugiat et. Vivamus mollis, odio ut facilisis elementum, dolor tellus vestibulum arcu, egestas semper ex risus ac urna. Quisque ac tortor quis purus gravida consequat vitae ut sem. Donec tristique urna vitae nisl egestas aliquet. Phasellus dictum ut lorem vitae dictum. Praesent vulputate ex id risus scelerisque, nec mattis massa dignissim. In at dignissim enim. Maecenas id maximus metus. Donec molestie sapien sed ipsum blandit vulputate.",
+		"addedBy": {
+			"uid": ""
+		},
+		"hidden": false
+	},
+	{
+		"metaData": {
+			"title": "title 2",
+			"img": ["imgurl1", "imgurl2", "imgurl3"],
+			"founder": ["founder 1", "founder 2"],
+		    "founded": "20XX",
+		    "url": "website url"
+		},
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sem metus, ultricies non lacus ut, aliquam vulputate sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam a efficitur velit, at finibus massa. Pellentesque quis blandit magna. In lacinia bibendum mauris, a fringilla turpis feugiat et. Vivamus mollis, odio ut facilisis elementum, dolor tellus vestibulum arcu, egestas semper ex risus ac urna. Quisque ac tortor quis purus gravida consequat vitae ut sem. Donec tristique urna vitae nisl egestas aliquet. Phasellus dictum ut lorem vitae dictum. Praesent vulputate ex id risus scelerisque, nec mattis massa dignissim. In at dignissim enim. Maecenas id maximus metus. Donec molestie sapien sed ipsum blandit vulputate.",
+		"addedBy": {
+			"uid": ""
+		},
+		"hidden": false
+	},
+	{
+		"metaData": {
+			"title": "title 3",
+			"img": ["imgurl1", "imgurl2", "imgurl3"],
+			"founder": ["founder 1", "founder 2"],
+		    "founded": "20XX",
+		    "url": "website url"
+		},
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sem metus, ultricies non lacus ut, aliquam vulputate sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam a efficitur velit, at finibus massa. Pellentesque quis blandit magna. In lacinia bibendum mauris, a fringilla turpis feugiat et. Vivamus mollis, odio ut facilisis elementum, dolor tellus vestibulum arcu, egestas semper ex risus ac urna. Quisque ac tortor quis purus gravida consequat vitae ut sem. Donec tristique urna vitae nisl egestas aliquet. Phasellus dictum ut lorem vitae dictum. Praesent vulputate ex id risus scelerisque, nec mattis massa dignissim. In at dignissim enim. Maecenas id maximus metus. Donec molestie sapien sed ipsum blandit vulputate.",
+		"addedBy": {
+			"uid": ""
+		},
+		"hidden": false
+	},
+	{
+		"metaData": {
+			"title": "title 4",
+			"img": ["imgurl1", "imgurl2", "imgurl3"],
+			"founder": ["founder 1", "founder 2"],
+		    "founded": "20XX",
+		    "url": "website url"
+		},
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sem metus, ultricies non lacus ut, aliquam vulputate sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam a efficitur velit, at finibus massa. Pellentesque quis blandit magna. In lacinia bibendum mauris, a fringilla turpis feugiat et. Vivamus mollis, odio ut facilisis elementum, dolor tellus vestibulum arcu, egestas semper ex risus ac urna. Quisque ac tortor quis purus gravida consequat vitae ut sem. Donec tristique urna vitae nisl egestas aliquet. Phasellus dictum ut lorem vitae dictum. Praesent vulputate ex id risus scelerisque, nec mattis massa dignissim. In at dignissim enim. Maecenas id maximus metus. Donec molestie sapien sed ipsum blandit vulputate.",
+		"addedBy": {
+			"uid": ""
+		},
+		"hidden": false
+	},
+	{
+		"metaData": {
+			"title": "title 5",
+			"img": ["imgurl1", "imgurl2", "imgurl3"],
+			"founder": ["founder 1", "founder 2"],
+		    "founded": "20XX",
+		    "url": "website url"
+		},
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sem metus, ultricies non lacus ut, aliquam vulputate sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam a efficitur velit, at finibus massa. Pellentesque quis blandit magna. In lacinia bibendum mauris, a fringilla turpis feugiat et. Vivamus mollis, odio ut facilisis elementum, dolor tellus vestibulum arcu, egestas semper ex risus ac urna. Quisque ac tortor quis purus gravida consequat vitae ut sem. Donec tristique urna vitae nisl egestas aliquet. Phasellus dictum ut lorem vitae dictum. Praesent vulputate ex id risus scelerisque, nec mattis massa dignissim. In at dignissim enim. Maecenas id maximus metus. Donec molestie sapien sed ipsum blandit vulputate.",
+		"addedBy": {
+			"uid": ""
+		},
+		"hidden": false
+	}
+]

@@ -1,13 +1,20 @@
 version: '3.4'
 
 services:
-  IIC_BACKEND:
+  database:
+    image: "${REGISTRY_NAME}mongo:latest"
+    volumes:
+      - iicdb:/data/db
+    networks:
+      - "internal"
+    restart: "unless-stopped"
+  iic_backend:
     build: .
     image: "${REGISTRY_NAME}devclubiitd/iic_backend:0.1"
     ports:
-      - 7500:3000
+      - ${PORT}:${PORT}
     healthcheck:
-      test: ["CMD", "curl", "http://localhost:7500"]
+      test: ["CMD", "curl", "http://localhost:${PORT}"]
       interval: 1m30s
       timeout: 10s
       retries: 3
@@ -16,8 +23,16 @@ services:
     networks:
       - "internal"
       - "reverseproxy"
+    env_file:
+      - ./.env
     environment:
       - VIRTUAL_HOST
+      - MONGODB_URI_LOCAL
+    depends_on:
+      - database
+
+volumes:
+  iicdb:
 
 networks:
   reverseproxy:

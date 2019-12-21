@@ -6,6 +6,9 @@ var resourceSchema = new mongoose.Schema({
 	type: {type: String, enum: ['type1', 'type2', 'type3']},
 	url: String,
 	provider: String, // name of the organisation providing this resource
+	addedBy: {
+		uid: mongoose.Schema.Types.ObjectId
+	},
 	hidden: Boolean
 });
 
