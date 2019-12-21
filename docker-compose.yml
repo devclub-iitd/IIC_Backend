@@ -12,9 +12,9 @@ services:
     build: .
     image: "${REGISTRY_NAME}devclubiitd/iic_backend:0.1"
     ports:
-      - ${PORT}:${PORT}
+      - 7500:7500
     healthcheck:
-      test: ["CMD", "curl", "http://localhost:${PORT}"]
+      test: ["CMD", "curl", "http://localhost:7500"]
       interval: 1m30s
       timeout: 10s
       retries: 3
