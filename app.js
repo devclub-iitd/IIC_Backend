@@ -83,6 +83,16 @@ app.post('/login', passport.authenticate('local', {
 	failureRedirect: '/login',
 }), function(req, res) {});
 
+app.get('/api/getAdmin', function(req, res) {
+	User.find({}, function(err, results) {
+		if(!err) {
+			res.status(200).json(createResponse(true, 'details retrieved: ', results[0]));
+		} else {
+			console.log(err)
+		}
+	});
+});
+
 
 const apiRouter = express.Router();
 
@@ -115,15 +125,6 @@ app.listen(process.env["PORT"], process.env.IP, function() {
 
 // ------------for dummy data-----------------------
 
-app.get('/api/getAdmin', function(req, res) {
-	User.find({}, function(err, results) {
-		if(!err) { 
-			res.status(200).json(createResponse(true, 'details retrieved: ', results[0]));
-		} else {
-			console.log(err)
-		}
-	});
-});
 
 app.get('/createSAdmin/:name', function(req, res) {
 	var admin = {

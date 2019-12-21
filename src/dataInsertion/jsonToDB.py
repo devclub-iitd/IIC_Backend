@@ -8,7 +8,7 @@ data = None
 with open(file, 'r') as f:
 	data = f.read()
 json_data = json.loads(data)
-
+# readUrl = 'https://iic.devclub.in/api/getAdmin'
 readUrl = 'http://localhost:7500/api/getAdmin'
 
 admin = ''
@@ -27,11 +27,13 @@ while admin == '':
 # sys.arv[2] = ['events, blog, resources, showcase, team']
 if admin.json()['status'] == True :
 	url = 'http://localhost:7500/api/insertData/' + sys.argv[2] + '/'
+	# url = 'https://iic.devclub.in/api/insertData/' + sys.argv[2] + '/'
+
 	headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 	for payload in json_data:
 
 		# NOTE:- comment following line when inserting team data
-		# payload['addedBy']['uid'] = admin.json()['data']['_id']
+		payload['addedBy']['uid'] = admin.json()['data']['_id']
 
 		r = requests.post(url, data=json.dumps(payload), headers=headers)
 		print('done');
@@ -39,9 +41,3 @@ if admin.json()['status'] == True :
 		# break
 else:
 	print("Whoops, an error occured pls try again")
-
-
-
-
-
-
