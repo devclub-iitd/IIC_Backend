@@ -8,10 +8,8 @@ const Resource = require('../models/resources');
 const Showcase = require('../models/showcase');
 const Team = require('../models/team');
 
-const session = require('express-session');
+const bcrypt = require('bcryptjs');
 const passport = require('passport');
-const localStrategy = require('passport-local');
-const passportLocalMongoose = require('passport-local-mongoose');
 
 const createResponse = require('../helper/helper');
 
@@ -24,48 +22,45 @@ const [resourceGetStatic, resourceGetAll, resourceGetID, resourceCreate, resourc
 const [showcaseGetStatic, showcaseGetAll, showcaseGetID, showcaseCreate, showcaseUpdateID, showcaseDeleteID] = Core(Showcase, 'all', true);
 const [teamGetStatic, teamGetAll, teamGetID, teamCreate, teamUpdateID, teamDeleteID] = Core(Team, 'all', true);
 
-router.use(session({
-	secret: 'iic@iitdelhi',
-	resave: false,
-	saveUnitialized: false,
-}));
 router.use(passport.initialize());
 router.use(passport.session());
-passport.use(new localStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 function userDetails(req, res) {
 	res.status(200).json(createResponse(true, 'User loaded successfully', req.user));
 }
 function createAdmin(req, res) {
-		var admin = {
+		var admin = new User({
 			name: req.body.name,
 			position: req.body.position,
 			organisation: req.body.organisation,
 			username: req.body.username,
-			access: req.body.access,
-		};
-		var password = req.body.password;
-		User.register(new User(admin), password, function(err, user) {
-			if(err) {
+			password: req.body.password,
+			access: req.body.access
+		});
+		User.addUser(admin, (err, user) => {
+			if (err) {
 				console.log(err);
 				return res.redirect('/api/admin/users');
-			}
-			passport.authenticate('local')(req, res, function() {
+			} else {
 				res.status(200).json(createResponse(true, "admin created with details: ", user));
-			})
-		});
+
+			}
+		})
 }
 function updateAdminPassword(req, res) {
 		var password = req.body.password;
+		
 		User.findById(req.params.id).then(
 			function(sanitizedUser) {
 		        if (sanitizedUser) {
-		            sanitizedUser.setPassword(password, function() {
-		                sanitizedUser.save();
-		                res.status(200).json(createResponse(true, "Password Changed successfully", ""));
-		            });
+		        	bcrypt.genSalt(10, (err, salt) => {
+		        		bcrypt.hash(password, salt, (err, hash) => {
+		        			if (err) console.log(err);
+		        			sanitizedUser.password = hash;
+		        			sanitizedUser.save();
+		        		});
+		        	});
+	                res.status(200).json(createResponse(true, "Password Changed successfully", ""));
 		        } else {
 		        	//change error status
 		            res.status(200).json(createResponse(false, "No such user found", ""));

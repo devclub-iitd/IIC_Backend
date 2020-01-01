@@ -1,3 +1,23 @@
+--------------------- for login ----------------------
+POST: /login			
+	params:
+		header:
+			Authorization // used for verifying that admin is logged in
+		user:
+			access	// used for checking that user is superadmin
+		body:
+			title	// title of the static
+			body[title]	// data in correct form, refer to static schema
+	return:
+		status: true/false
+		message: "string"
+		data: {
+			token: // contains an "Authorization" token to be sent further in admin request
+			user: { contatins all the user details }
+		}
+
+-----------------------------------------------------------------------
+
 GET: /api/about				// For the about page
 	return:
 		status: true/false
@@ -64,7 +84,7 @@ GET: /api/team
 GET: /api/admin
 	params:
 		header: 
-			token	// used for verifying that admin is logged in
+			Authorization	// used for verifying that admin is logged in
 	return:
 		status: true/false
 		message: "string"
@@ -75,7 +95,7 @@ GET: /api/admin
 GET: /api/admin/:category				// returns all results of given category
 	params:
 		header: 
-			token	// used for verifying that admin is logged in
+			Authorization	// used for verifying that admin is logged in
 	return:
 		status: true/false
 		message: "string"
@@ -84,7 +104,7 @@ GET: /api/admin/:category				// returns all results of given category
 GET: /api/admin/:category/:id				// returns all results of given category
 	params:
 		header: 
-			token	// used for verifying that admin is logged in
+			Authorization	// used for verifying that admin is logged in
 	return:
 		status: true/false
 		message: "string"
@@ -93,7 +113,7 @@ GET: /api/admin/:category/:id				// returns all results of given category
 POST: /api/admin/:category				// create a new object of correponding category
 	params:
 		header:
-			token	// used for verifying that admin is logged in
+			Authorization	// used for verifying that admin is logged in
 		body:
 			// refer to corresponding category schema at bottom
 		return:
@@ -104,7 +124,7 @@ POST: /api/admin/:category				// create a new object of correponding category
 POST: /api/admin/:category/:id				// update details of an object with corresponding id of the corresponding category
 	params:
 		header:
-			token	// used for verifying that admin is logged in
+			Authorization	// used for verifying that admin is logged in
 		body:
 			// refer to corresponding category schema at bottom
 		return:
@@ -115,7 +135,7 @@ POST: /api/admin/:category/:id				// update details of an object with correspond
 DELETE: /api/admin/:category/:id				// delete an object with corresponding id of corresponding category
 	params:
 		header:
-			token	// used for verifying that admin is logged in
+			Authorization	// used for verifying that admin is logged in
 	return:
 		status: true/false
 		message: "string"
@@ -185,7 +205,7 @@ team:
 GET: /api/admin/users			// display all users
 	params:
 		header:
-			token // used for verifying that admin is logged in
+			Authorization // used for verifying that admin is logged in
 		user:
 			access	// used for checking that user is superadmin
 	return:
@@ -196,7 +216,7 @@ GET: /api/admin/users			// display all users
 GET: /api/admin/users/:id			// display user with corresponding id
 	params:
 		header:
-			token // used for verifying that admin is logged in
+			Authorization // used for verifying that admin is logged in
 		user:
 			access	// used for checking that user is superadmin
 	return:
@@ -207,7 +227,7 @@ GET: /api/admin/users/:id			// display user with corresponding id
 POST: /api/admin/users		// create a new user/admin
 	params:
 		header:
-			token // used for verifying that admin is logged in
+			Authorization // used for verifying that admin is logged in
 		user:
 			access	// used for checking that user is superadmin
 		body:
@@ -225,7 +245,7 @@ POST: /api/admin/users		// create a new user/admin
 POST: /api/admin/users/:id/password			// update password of user with corresponding id
 	params:
 		header:
-			token // used for verifying that admin is logged in
+			Authorization // used for verifying that admin is logged in
 		user:
 			access	// used for checking that user is superadmin
 		body:
@@ -237,7 +257,7 @@ POST: /api/admin/users/:id/password			// update password of user with correspond
 POST: /api/admin/users/:id			// update details of user with corresponding id
 	params:
 		header:
-			token // used for verifying that admin is logged in
+			Authorization // used for verifying that admin is logged in
 		user:
 			access	// used for checking that user is superadmin
 		body:
@@ -255,7 +275,7 @@ POST: /api/admin/users/:id			// update details of user with corresponding id
 DELETE: /api/admin/users/:id			// delete user with corresponding id
 	params:
 		header:
-			token // used for verifying that admin is logged in
+			Authorization // used for verifying that admin is logged in
 		user:
 			access	// used for checking that user is superadmin
 	return:
@@ -272,7 +292,7 @@ GET: /api/admin/statics/:title
 POST: /api/admin/statics			// to create a new static entry - model schema also has to be changed !!!
 	params:
 		header:
-			token // used for verifying that admin is logged in
+			Authorization // used for verifying that admin is logged in
 		user:
 			access	// used for checking that user is superadmin
 		body:
@@ -286,7 +306,7 @@ POST: /api/admin/statics			// to create a new static entry - model schema also h
 POST: /api/admin/statics/:title			// to update contents of a static entry
 	params:
 		header:
-			token // used for verifying that admin is logged in
+			Authorization // used for verifying that admin is logged in
 		user:
 			access	// used for checking that user is superadmin
 		body:

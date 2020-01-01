@@ -7,10 +7,8 @@ const lusca = require("lusca");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-const session = require('express-session');
 const passport = require('passport');
-const localStrategy = require('passport-local');
-const passportLocalMongoose = require('passport-local-mongoose');
+const jwt = require('jsonwebtoken');
 
 const createResponse = require('./src/helper/helper');
 
@@ -34,8 +32,8 @@ if (fs.existsSync(".env")) {
   console.log("Please create a .env file for environment variables");
 }
 
-const MONGODB_URI = process.env["MONGODB_URI_LOCAL"] || "mongodb://localhost:27017/iic_backend";
-// const MONGODB_URI = "mongodb://localhost:27017/iic_backend";
+// const MONGODB_URI = process.env["MONGODB_URI_LOCAL"] || "mongodb://localhost:27017/iic_backend";
+const MONGODB_URI = "mongodb://localhost:27017/iic_backend";
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 .then(function() {
@@ -52,36 +50,55 @@ app.use(helmet());
 app.use(lusca.xframe("SAMEORIGIN"));
 app.use(lusca.xssProtection(true));
 
-
-app.use(session({
-	secret: 'iic@iitdelhi',
-	resave: false,
-	saveUnitialized: false,
-}));
 app.use(passport.initialize());
 app.use(passport.session());
+
+require('./src/helper/passport')(passport);
+
 var User = require('./src/models/users');
-passport.use(new localStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 app.set("view engine","ejs");
-
-function isLoggedIn(req, res, next) {
-	if (req.isAuthenticated()) {
-		return next();
-	}
-	console.log('user is not logged in');
-}
 
 app.get('/', function(req, res) {
   res.send("You've reached the default start page");
 });
 
-app.post('/login', passport.authenticate('local', {
-	successRedirect: '/api/admin',
-	failureRedirect: '/login',
-}), function(req, res) {});
+app.post('/login', (req, res, next) => {
+	const username = req.body.username;
+	const password = req.body.password;
+
+	User.getUserByName(username, (err, user) => {
+		if (err) {
+			console.log(err);
+		}
+		if (!user) {
+			// change error status
+			res.status(200).json(createResponse(false, 'User not found', ""));
+		} else {
+			User.comparePasswords(password, user.password, (err, isMatch) => {
+				if (err) {
+					console.log(err);
+					// change error status
+					res.status(200).json(createResponse(false, 'Something went wrong, please try again later', ""));
+				}
+				if (isMatch) {
+					// import secret from env file ---------------------------
+					const token = jwt.sign(user.toJSON(), 'iic@iitdelhi', {
+						expiresIn: 604800
+					});
+					jsonData = {
+						token: 'JWT ' + token,
+						user: user
+					}
+					res.status(200).json(createResponse(true, 'User logged in successfully', jsonData));
+				} else {
+					// change error status
+					res.status(200).json(createResponse(false, 'Incorrect password', ""));
+				}
+			})
+		}
+	})
+})
 
 app.get('/api/getAdmin', function(req, res) {
 	User.find({}, function(err, results) {
@@ -98,7 +115,7 @@ const apiRouter = express.Router();
 
 apiRouter.use('/about', aboutRouter);
 // apiRouter.use('/admin', adminRouter);
-apiRouter.use('/admin',isLoggedIn, adminRouter);
+apiRouter.use('/admin', passport.authenticate('jwt', {session: false}), adminRouter);
 apiRouter.use('/blog', blogRouter);
 apiRouter.use('/events', eventRouter);
 apiRouter.use('/initiatives', initRouter);
@@ -126,25 +143,30 @@ app.listen(process.env["PORT"], process.env.IP, function() {
 
 // ------------for dummy data-----------------------
 
+app.get('/sudo/deleteAll', function(req, res) {
+	mongoose.connection.db.dropDatabase(function(err, result) {
+		console.log('Entire collection deleted');
+	});
+	res.send('done');
+})
 
 app.get('/createSAdmin/:name', function(req, res) {
-	var admin = {
+	var admin = new User({
 		name: req.params.name,
 		position: 'PosName',
 		organisation: 'OrgName',
 		username: req.params.name,
-		access: 'superadmin',
-	};
-	var password = 'helloworld';
-	User.register(new User(admin), password, function(err, user) {
-		if(err) {
-			console.log(err);
-			return res.redirect('/');
-		}
-		passport.authenticate('local')(req, res, function() {
-			res.redirect('/admin');
-		})
+		password: 'helloworld',
+		access: 'superadmin'
 	});
+	User.addUser(admin, (err, user) => {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log(user);
+		}
+	})
+	res.send('done');
 });
 
 
