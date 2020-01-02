@@ -32,8 +32,8 @@ if (fs.existsSync(".env")) {
   console.log("Please create a .env file for environment variables");
 }
 
-// const MONGODB_URI = process.env["MONGODB_URI_LOCAL"] || "mongodb://localhost:27017/iic_backend";
-const MONGODB_URI = "mongodb://localhost:27017/iic_backend";
+const MONGODB_URI = process.env["MONGODB_URI_LOCAL"] || "mongodb://localhost:27017/iic_backend";
+// const MONGODB_URI = "mongodb://localhost:27017/iic_backend";
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 .then(function() {
