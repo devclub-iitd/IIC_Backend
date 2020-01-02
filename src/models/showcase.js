@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var showcaseSchema = new mongoose.Schema({
 	metaData: {
 		title: String,
-		img: [String],
+		img: String,
 		founder: [String],
 	    founded: String,
 	    url: String

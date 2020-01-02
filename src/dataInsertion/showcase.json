@@ -2,7 +2,7 @@
 	{
 		"metaData": {
 			"title": "title 1",
-			"img": ["imgurl1", "imgurl2", "imgurl3"],
+			"img": "imgurl1",
 			"founder": ["founder 1", "founder 2"],
 		    "founded": "20XX",
 		    "url": "website url"
@@ -16,7 +16,7 @@
 	{
 		"metaData": {
 			"title": "title 2",
-			"img": ["imgurl1", "imgurl2", "imgurl3"],
+			"img": "imgurl1",
 			"founder": ["founder 1", "founder 2"],
 		    "founded": "20XX",
 		    "url": "website url"
@@ -30,7 +30,7 @@
 	{
 		"metaData": {
 			"title": "title 3",
-			"img": ["imgurl1", "imgurl2", "imgurl3"],
+			"img": "imgurl1",
 			"founder": ["founder 1", "founder 2"],
 		    "founded": "20XX",
 		    "url": "website url"
@@ -44,7 +44,7 @@
 	{
 		"metaData": {
 			"title": "title 4",
-			"img": ["imgurl1", "imgurl2", "imgurl3"],
+			"img": "imgurl1",
 			"founder": ["founder 1", "founder 2"],
 		    "founded": "20XX",
 		    "url": "website url"
@@ -58,7 +58,7 @@
 	{
 		"metaData": {
 			"title": "title 5",
-			"img": ["imgurl1", "imgurl2", "imgurl3"],
+			"img": "imgurl1",
 			"founder": ["founder 1", "founder 2"],
 		    "founded": "20XX",
 		    "url": "website url"

@@ -6,8 +6,10 @@ var eventSchema = new mongoose.Schema({
 		type: {type: String, enum: ['type1', 'type2', 'type3']},
 		title: String,
 		eventDate: String,
+		eventTime: String,
 		organiser: String,
 		venue: String,
+		sponsors: [String],
 		img: String
 	},
 	body: String,
