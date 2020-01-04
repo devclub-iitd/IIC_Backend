@@ -7,7 +7,23 @@
             "eventTime": "10:00 AM",
             "organiser": "organiser",
             "venue": "venue",
-            "sponsors": ["sponsor 1", "sponsor 2", "sponsor 3"],
+            "sponsors": [
+                {
+                "name": "sponsor 1",
+                "img": "imgUrl",
+                "desc": "Some information about the sponsor that is to be displayed on the website"
+                },
+                {
+                "name": "sponsor 2",
+                "img": "imgUrl",
+                "desc": "Some information about the sponsor that is to be displayed on the website"
+                },
+                {
+                "name": "sponsor 3",
+                "img": "imgUrl",
+                "desc": "Some information about the sponsor that is to be displayed on the website"
+                }
+            ],
             "img": "imgUrl"
         },
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sem metus, ultricies non lacus ut, aliquam vulputate sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam a efficitur velit, at finibus massa. Pellentesque quis blandit magna. In lacinia bibendum mauris, a fringilla turpis feugiat et. Vivamus mollis, odio ut facilisis elementum, dolor tellus vestibulum arcu, egestas semper ex risus ac urna. Quisque ac tortor quis purus gravida consequat vitae ut sem. Donec tristique urna vitae nisl egestas aliquet. Phasellus dictum ut lorem vitae dictum. Praesent vulputate ex id risus scelerisque, nec mattis massa dignissim. In at dignissim enim. Maecenas id maximus metus. Donec molestie sapien sed ipsum blandit vulputate.",
@@ -25,7 +41,23 @@
             "eventTime": "10:00 AM",
             "organiser": "organiser",
             "venue": "venue",
-            "sponsors": ["sponsor 1", "sponsor 2", "sponsor 3"],
+            "sponsors": [
+                {
+                "name": "sponsor 1",
+                "img": "imgUrl",
+                "desc": "Some information about the sponsor that is to be displayed on the website"
+                },
+                {
+                "name": "sponsor 2",
+                "img": "imgUrl",
+                "desc": "Some information about the sponsor that is to be displayed on the website"
+                },
+                {
+                "name": "sponsor 3",
+                "img": "imgUrl",
+                "desc": "Some information about the sponsor that is to be displayed on the website"
+                }
+            ],
             "img": "imgUrl"
         },
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sem metus, ultricies non lacus ut, aliquam vulputate sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam a efficitur velit, at finibus massa. Pellentesque quis blandit magna. In lacinia bibendum mauris, a fringilla turpis feugiat et. Vivamus mollis, odio ut facilisis elementum, dolor tellus vestibulum arcu, egestas semper ex risus ac urna. Quisque ac tortor quis purus gravida consequat vitae ut sem. Donec tristique urna vitae nisl egestas aliquet. Phasellus dictum ut lorem vitae dictum. Praesent vulputate ex id risus scelerisque, nec mattis massa dignissim. In at dignissim enim. Maecenas id maximus metus. Donec molestie sapien sed ipsum blandit vulputate.",
@@ -43,7 +75,23 @@
             "eventTime": "10:00 AM",
             "organiser": "organiser",
             "venue": "venue",
-            "sponsors": ["sponsor 1", "sponsor 2", "sponsor 3"],
+            "sponsors": [
+                {
+                "name": "sponsor 1",
+                "img": "imgUrl",
+                "desc": "Some information about the sponsor that is to be displayed on the website"
+                },
+                {
+                "name": "sponsor 2",
+                "img": "imgUrl",
+                "desc": "Some information about the sponsor that is to be displayed on the website"
+                },
+                {
+                "name": "sponsor 3",
+                "img": "imgUrl",
+                "desc": "Some information about the sponsor that is to be displayed on the website"
+                }
+            ],
             "img": "imgUrl"
         },
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sem metus, ultricies non lacus ut, aliquam vulputate sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam a efficitur velit, at finibus massa. Pellentesque quis blandit magna. In lacinia bibendum mauris, a fringilla turpis feugiat et. Vivamus mollis, odio ut facilisis elementum, dolor tellus vestibulum arcu, egestas semper ex risus ac urna. Quisque ac tortor quis purus gravida consequat vitae ut sem. Donec tristique urna vitae nisl egestas aliquet. Phasellus dictum ut lorem vitae dictum. Praesent vulputate ex id risus scelerisque, nec mattis massa dignissim. In at dignissim enim. Maecenas id maximus metus. Donec molestie sapien sed ipsum blandit vulputate.",
@@ -61,7 +109,23 @@
             "eventTime": "10:00 AM",
             "organiser": "organiser",
             "venue": "venue",
-            "sponsors": ["sponsor 1", "sponsor 2", "sponsor 3"],
+            "sponsors": [
+                {
+                "name": "sponsor 1",
+                "img": "imgUrl",
+                "desc": "Some information about the sponsor that is to be displayed on the website"
+                },
+                {
+                "name": "sponsor 2",
+                "img": "imgUrl",
+                "desc": "Some information about the sponsor that is to be displayed on the website"
+                },
+                {
+                "name": "sponsor 3",
+                "img": "imgUrl",
+                "desc": "Some information about the sponsor that is to be displayed on the website"
+                }
+            ],
             "img": "imgUrl"
         },
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sem metus, ultricies non lacus ut, aliquam vulputate sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam a efficitur velit, at finibus massa. Pellentesque quis blandit magna. In lacinia bibendum mauris, a fringilla turpis feugiat et. Vivamus mollis, odio ut facilisis elementum, dolor tellus vestibulum arcu, egestas semper ex risus ac urna. Quisque ac tortor quis purus gravida consequat vitae ut sem. Donec tristique urna vitae nisl egestas aliquet. Phasellus dictum ut lorem vitae dictum. Praesent vulputate ex id risus scelerisque, nec mattis massa dignissim. In at dignissim enim. Maecenas id maximus metus. Donec molestie sapien sed ipsum blandit vulputate.",
@@ -79,7 +143,23 @@
             "eventTime": "10:00 AM",
             "organiser": "organiser",
             "venue": "venue",
-            "sponsors": ["sponsor 1", "sponsor 2", "sponsor 3"],
+            "sponsors": [
+                {
+                "name": "sponsor 1",
+                "img": "imgUrl",
+                "desc": "Some information about the sponsor that is to be displayed on the website"
+                },
+                {
+                "name": "sponsor 2",
+                "img": "imgUrl",
+                "desc": "Some information about the sponsor that is to be displayed on the website"
+                },
+                {
+                "name": "sponsor 3",
+                "img": "imgUrl",
+                "desc": "Some information about the sponsor that is to be displayed on the website"
+                }
+            ],
             "img": "imgUrl"
         },
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sem metus, ultricies non lacus ut, aliquam vulputate sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam a efficitur velit, at finibus massa. Pellentesque quis blandit magna. In lacinia bibendum mauris, a fringilla turpis feugiat et. Vivamus mollis, odio ut facilisis elementum, dolor tellus vestibulum arcu, egestas semper ex risus ac urna. Quisque ac tortor quis purus gravida consequat vitae ut sem. Donec tristique urna vitae nisl egestas aliquet. Phasellus dictum ut lorem vitae dictum. Praesent vulputate ex id risus scelerisque, nec mattis massa dignissim. In at dignissim enim. Maecenas id maximus metus. Donec molestie sapien sed ipsum blandit vulputate.",
