@@ -9,11 +9,6 @@ var eventSchema = new mongoose.Schema({
 		eventTime: String,
 		organiser: String,
 		venue: String,
-		sponsors: [{
-			name: String,
-			img: String,
-			desc: String,
-		}],
 		img: String
 	},
 	body: String,

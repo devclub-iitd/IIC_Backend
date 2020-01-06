@@ -6,6 +6,7 @@ const Blog = require('../models/blogPost');
 const Event = require('../models/events');
 const Resource = require('../models/resources');
 const Showcase = require('../models/showcase');
+const Sponsor = require('../models/sponsors');
 const Team = require('../models/team');
 
 const bcrypt = require('bcryptjs');
@@ -20,6 +21,7 @@ const [blogGetStatic, blogGetAll, blogGetID, blogCreate, blogUpdateID, blogDelet
 const [eventGetStatic, eventGetAll, eventGetID, eventCreate, eventUpdateID, eventDeleteID] = Core(Event, 'all', true);
 const [resourceGetStatic, resourceGetAll, resourceGetID, resourceCreate, resourceUpdateID, resourceDeleteID] = Core(Resource, 'all', true);
 const [showcaseGetStatic, showcaseGetAll, showcaseGetID, showcaseCreate, showcaseUpdateID, showcaseDeleteID] = Core(Showcase, 'all', true);
+const [sponsorGetStatic, sponsorGetAll, sponsorGetID, sponsorCreate, sponsorUpdateID, sponsorDeleteID] = Core(Sponsor, 'all', true);
 const [teamGetStatic, teamGetAll, teamGetID, teamCreate, teamUpdateID, teamDeleteID] = Core(Team, 'all', true);
 
 router.use(passport.initialize());
@@ -134,6 +136,12 @@ router.get('/showcase/:id', showcaseGetID);
 router.post('/showcase', showcaseCreate);
 router.post('/showcase/:id', showcaseUpdateID);
 router.delete('/showcase/:id', showcaseDeleteID);
+
+router.get('/sponsors', sponsorGetAll);
+router.get('/sponsors/:id', sponsorGetID);
+router.post('/sponsors', sponsorCreate);
+router.post('/sponsors/:id', sponsorUpdateID);
+router.delete('/sponsors/:id', sponsorDeleteID);
 
 router.get('/team', teamGetAll);
 router.get('/team/:id', teamGetID);

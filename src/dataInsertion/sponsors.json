@@ -1,0 +1,32 @@
+[
+    {
+        "name": "sponsor 1",
+        "img": "imgUrl",
+        "desc": "Some information about the sponsor that is to be displayed on the website",
+        "hidden": false
+    },
+    {
+        "name": "sponsor 2",
+        "img": "imgUrl",
+        "desc": "Some information about the sponsor that is to be displayed on the website",
+        "hidden": false
+    },
+    {
+        "name": "sponsor 3",
+        "img": "imgUrl",
+        "desc": "Some information about the sponsor that is to be displayed on the website",
+        "hidden": false
+    },
+    {
+        "name": "sponsor 4",
+        "img": "imgUrl",
+        "desc": "Some information about the sponsor that is to be displayed on the website",
+        "hidden": false
+    },
+    {
+        "name": "sponsor 5",
+        "img": "imgUrl",
+        "desc": "Some information about the sponsor that is to be displayed on the website",
+        "hidden": false
+    }    
+]

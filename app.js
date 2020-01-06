@@ -19,6 +19,7 @@ const eventRouter = require("./src/controllers/events");
 const initRouter = require("./src/controllers/initiatives");
 const resourceRouter = require("./src/controllers/resources");
 const showcaseRouter = require("./src/controllers/showcase");
+const sponsorRouter = require("./src/controllers/sponsors");
 const teamRouter = require("./src/controllers/team");
 
 // import path from "path";
@@ -121,6 +122,7 @@ apiRouter.use('/events', eventRouter);
 apiRouter.use('/initiatives', initRouter);
 apiRouter.use('/resources', resourceRouter);
 apiRouter.use('/showcase', showcaseRouter);
+apiRouter.use('/sponsors', sponsorRouter);
 apiRouter.use('/team', teamRouter);
 
 // -------------- unprotected admin route to insert Data ------------------
