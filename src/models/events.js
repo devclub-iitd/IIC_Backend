@@ -8,8 +8,7 @@ var eventSchema = new mongoose.Schema({
 		eventDate: String,
 		eventTime: String,
 		organiser: String,
-		venue: String,
-		img: String
+		venue: String
 	},
 	body: String,
 	onGoing: Boolean,

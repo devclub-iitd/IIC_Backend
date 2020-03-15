@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 var blogSchema = new mongoose.Schema({
 	metaData: {
 		title: String,
-		img: String,
 		author: String,
 		organisation: String
 	},
