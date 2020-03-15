@@ -5,8 +5,7 @@ const User = require('../models/users');
 module.exports = function(passport) {
 	var opts = {}
 	opts.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme('JWT');
-	// ------------- import from secret -------------------
-	opts.secretOrKey = 'iic@iitdelhi';
+	opts.secretOrKey = process.env['SECRET'];
 	passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
 		console.log(jwt_payload);
 		User.getUserById(jwt_payload._id, (err, user) => {
