@@ -3,11 +3,10 @@ var mongoose = require('mongoose');
 var staticSchema = new mongoose.Schema({
 	title: String,
 	body: {
-		about: String,
+		about: [String],
 		initiatives: [{
 			title: String,
-			desc: String,
-			img: String
+			desc: String
 		}]
 		// add field acc to various static requirements
 	},
