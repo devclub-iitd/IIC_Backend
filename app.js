@@ -33,6 +33,8 @@ if (fs.existsSync(".env")) {
   console.log("Please create a .env file for environment variables");
 }
 
+const secret = process.env['SECRET'];
+
 const MONGODB_URI = process.env["MONGODB_URI_LOCAL"] || "mongodb://localhost:27017/iic_backend";
 // const MONGODB_URI = "mongodb://localhost:27017/iic_backend";
 
@@ -84,7 +86,7 @@ app.post('/login', (req, res, next) => {
 				}
 				if (isMatch) {
 					// import secret from env file ---------------------------
-					const token = jwt.sign(user.toJSON(), 'iic@iitdelhi', {
+					const token = jwt.sign(user.toJSON(), secret, {
 						expiresIn: 604800
 					});
 					jsonData = {
@@ -143,7 +145,7 @@ app.listen(process.env["PORT"], process.env.IP, function() {
 	console.log("Server started on %s", process.env["PORT"]);
 });
 
-// ------------for dummy data-----------------------
+// ------------for dummy data-----------------------delete this later on
 
 app.get('/sudo/deleteAll', function(req, res) {
 	mongoose.connection.db.dropDatabase(function(err, result) {
